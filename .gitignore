@@ -1,0 +1,11 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.cache
+*.dbmdl
+*.db
+bin/
+obj/
+*.log
+*.sln.docstates
