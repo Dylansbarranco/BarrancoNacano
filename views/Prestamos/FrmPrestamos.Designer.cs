@@ -31,16 +31,16 @@
             groupCliente = new GroupBox();
             txtNombre = new TextBox();
             lblNombre = new Label();
-            btnBuscarcliente = new Button();
+            btnBuscarCliente = new Button();
             lblCedula = new Label();
             txtCedula = new TextBox();
             groupDatosPrestamo = new GroupBox();
-            label2 = new Label();
+            lblQuienPresta = new Label();
             txtQuienPresta = new TextBox();
-            ddtpFechaCobro = new DateTimePicker();
+            dtpFechaCobro = new DateTimePicker();
             dtpFechaPrestamo = new DateTimePicker();
             lblFechaPrestamo = new Label();
-            label1 = new Label();
+            lblFechaCobro = new Label();
             txtFormaPago = new TextBox();
             lblFormaDePago = new Label();
             txtNumeroDeCuotas = new TextBox();
@@ -49,27 +49,27 @@
             lblInteres = new Label();
             lblMontoPrestamo = new Label();
             txtMontoPrestado = new TextBox();
-            groupBox1 = new GroupBox();
-            chkActivo = new CheckBox();
+            groupCliente = new GroupBox();
             lblEstado = new Label();
+            chkActivo = new CheckBox();
             dgvPrestamos = new DataGridView();
-            this.btnGuardar = new Button();
-            this.btnEliminar = new Button();
-            this.btnBuscar = new Button();
+            btnGuardar = new Button();
+            btnEliminar = new Button();
+            btnBuscar = new Button();
             btnActualizar = new Button();
-            groupBox2 = new GroupBox();
+            groupBotones = new GroupBox();
             groupCliente.SuspendLayout();
             groupDatosPrestamo.SuspendLayout();
-            groupBox1.SuspendLayout();
+            groupCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPrestamos).BeginInit();
-            groupBox2.SuspendLayout();
+            groupBotones.SuspendLayout();
             SuspendLayout();
             // 
             // groupCliente
             // 
             groupCliente.Controls.Add(txtNombre);
             groupCliente.Controls.Add(lblNombre);
-            groupCliente.Controls.Add(btnBuscarcliente);
+            groupCliente.Controls.Add(btnBuscarCliente);
             groupCliente.Controls.Add(lblCedula);
             groupCliente.Controls.Add(txtCedula);
             groupCliente.Location = new Point(26, 26);
@@ -96,14 +96,14 @@
             lblNombre.TabIndex = 3;
             lblNombre.Text = "Nombre";
             // 
-            // btnBuscarcliente
+            // btnBuscarCliente
             // 
-            btnBuscarcliente.Location = new Point(182, 42);
-            btnBuscarcliente.Name = "btnBuscarcliente";
-            btnBuscarcliente.Size = new Size(75, 23);
-            btnBuscarcliente.TabIndex = 2;
-            btnBuscarcliente.Text = "Buscar";
-            btnBuscarcliente.UseVisualStyleBackColor = true;
+            btnBuscarCliente.Location = new Point(182, 42);
+            btnBuscarCliente.Name = "btnBuscarCliente";
+            btnBuscarCliente.Size = new Size(75, 23);
+            btnBuscarCliente.TabIndex = 2;
+            btnBuscarCliente.Text = "Buscar";
+            btnBuscarCliente.UseVisualStyleBackColor = true;
             // 
             // lblCedula
             // 
@@ -124,12 +124,12 @@
             // 
             // groupDatosPrestamo
             // 
-            groupDatosPrestamo.Controls.Add(label2);
+            groupDatosPrestamo.Controls.Add(lblQuienPresta);
             groupDatosPrestamo.Controls.Add(txtQuienPresta);
-            groupDatosPrestamo.Controls.Add(ddtpFechaCobro);
+            groupDatosPrestamo.Controls.Add(dtpFechaCobro);
             groupDatosPrestamo.Controls.Add(dtpFechaPrestamo);
             groupDatosPrestamo.Controls.Add(lblFechaPrestamo);
-            groupDatosPrestamo.Controls.Add(label1);
+            groupDatosPrestamo.Controls.Add(lblFechaCobro);
             groupDatosPrestamo.Controls.Add(txtFormaPago);
             groupDatosPrestamo.Controls.Add(lblFormaDePago);
             groupDatosPrestamo.Controls.Add(txtNumeroDeCuotas);
@@ -145,15 +145,15 @@
             groupDatosPrestamo.TabStop = false;
             groupDatosPrestamo.Text = "Datos del préstamo";
             // 
-            // label2
+            // lblQuienPresta
             // 
-            label2.AllowDrop = true;
-            label2.AutoSize = true;
-            label2.Location = new Point(27, 314);
-            label2.Name = "label2";
-            label2.Size = new Size(74, 15);
-            label2.TabIndex = 16;
-            label2.Text = "Quien Presta";
+            lblQuienPresta.AllowDrop = true;
+            lblQuienPresta.AutoSize = true;
+            lblQuienPresta.Location = new Point(27, 314);
+            lblQuienPresta.Name = "lblQuienPresta";
+            lblQuienPresta.Size = new Size(74, 15);
+            lblQuienPresta.TabIndex = 16;
+            lblQuienPresta.Text = "Quien Presta";
             // 
             // txtQuienPresta
             // 
@@ -162,12 +162,12 @@
             txtQuienPresta.Size = new Size(112, 23);
             txtQuienPresta.TabIndex = 15;
             // 
-            // ddtpFechaCobro
+            // dtpFechaCobro
             // 
-            ddtpFechaCobro.Location = new Point(145, 269);
-            ddtpFechaCobro.Name = "ddtpFechaCobro";
-            ddtpFechaCobro.Size = new Size(112, 23);
-            ddtpFechaCobro.TabIndex = 14;
+            dtpFechaCobro.Location = new Point(145, 269);
+            dtpFechaCobro.Name = "dtpFechaCobro";
+            dtpFechaCobro.Size = new Size(112, 23);
+            dtpFechaCobro.TabIndex = 14;
             // 
             // dtpFechaPrestamo
             // 
@@ -186,15 +186,15 @@
             lblFechaPrestamo.TabIndex = 10;
             lblFechaPrestamo.Text = "Fecha del \r\npréstamo";
             // 
-            // label1
+            // lblFechaCobro
             // 
-            label1.AllowDrop = true;
-            label1.AutoSize = true;
-            label1.Location = new Point(27, 275);
-            label1.Name = "label1";
-            label1.Size = new Size(98, 30);
-            label1.TabIndex = 9;
-            label1.Text = "Fecha del primer \r\ncobro";
+            lblFechaCobro.AllowDrop = true;
+            lblFechaCobro.AutoSize = true;
+            lblFechaCobro.Location = new Point(27, 275);
+            lblFechaCobro.Name = "lblFechaCobro";
+            lblFechaCobro.Size = new Size(98, 30);
+            lblFechaCobro.TabIndex = 9;
+            lblFechaCobro.Text = "Fecha del primer \r\ncobro";
             // 
             // txtFormaPago
             // 
@@ -264,16 +264,26 @@
             txtMontoPrestado.Size = new Size(112, 23);
             txtMontoPrestado.TabIndex = 0;
             // 
-            // groupBox1
+            // groupBotones
             // 
-            groupBox1.Controls.Add(lblEstado);
-            groupBox1.Controls.Add(chkActivo);
-            groupBox1.Location = new Point(317, 26);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(285, 124);
-            groupBox1.TabIndex = 5;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Estado del préstamo";
+            groupCliente.Controls.Add(lblEstado);
+            groupCliente.Controls.Add(chkActivo);
+            groupCliente.Location = new Point(317, 26);
+            groupBotones.Name = "groupBotones";
+            groupCliente.Size = new Size(285, 124);
+            groupCliente.TabIndex = 5;
+            groupCliente.TabStop = false;
+            groupCliente.Text = "Estado del préstamo";
+            // 
+            // lblEstado
+            // 
+            lblEstado.AllowDrop = true;
+            lblEstado.AutoSize = true;
+            lblEstado.Location = new Point(23, 41);
+            lblEstado.Name = "lblEstado";
+            lblEstado.Size = new Size(41, 15);
+            lblEstado.TabIndex = 5;
+            lblEstado.Text = "Activo";
             // 
             // chkActivo
             // 
@@ -285,16 +295,6 @@
             chkActivo.Text = "checkBox1";
             chkActivo.UseVisualStyleBackColor = true;
             // 
-            // lblEstado
-            // 
-            lblEstado.AllowDrop = true;
-            lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(23, 41);
-            lblEstado.Name = "lblEstado";
-            lblEstado.Size = new Size(42, 15);
-            lblEstado.TabIndex = 5;
-            lblEstado.Text = "Estado";
-            // 
             // dgvPrestamos
             // 
             dgvPrestamos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -305,30 +305,30 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new Point(6, 10);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new Size(154, 23);
-            this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Location = new Point(6, 10);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(154, 23);
+            btnGuardar.TabIndex = 7;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // BtnEliminar
+            // btnEliminar
             // 
-            this.btnEliminar.Location = new Point(6, 67);
-            this.btnEliminar.Name = "BtnEliminar";
-            this.btnEliminar.Size = new Size(154, 23);
-            this.btnEliminar.TabIndex = 8;
-            this.btnEliminar.Text = "Elimiar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Location = new Point(6, 67);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(154, 23);
+            btnEliminar.TabIndex = 8;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new Point(6, 96);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new Size(154, 23);
-            this.btnBuscar.TabIndex = 9;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Location = new Point(6, 96);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(154, 23);
+            btnBuscar.TabIndex = 9;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
             // 
             // btnActualizar
             // 
@@ -339,26 +339,26 @@
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // groupBotones
             // 
-            groupBox2.Controls.Add(this.btnGuardar);
-            groupBox2.Controls.Add(this.btnBuscar);
-            groupBox2.Controls.Add(btnActualizar);
-            groupBox2.Controls.Add(this.btnEliminar);
-            groupBox2.Location = new Point(608, 26);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(166, 133);
-            groupBox2.TabIndex = 6;
-            groupBox2.TabStop = false;
+            groupBotones.Controls.Add(btnGuardar);
+            groupBotones.Controls.Add(btnBuscar);
+            groupBotones.Controls.Add(btnActualizar);
+            groupBotones.Controls.Add(btnEliminar);
+            groupBotones.Location = new Point(608, 26);
+            groupBotones.Name = "groupBotones";
+            groupBotones.Size = new Size(166, 133);
+            groupBotones.TabIndex = 6;
+            groupBotones.TabStop = false;
             // 
             // FrmPrestamos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 572);
-            Controls.Add(groupBox2);
+            Controls.Add(groupBotones);
             Controls.Add(dgvPrestamos);
-            Controls.Add(groupBox1);
+            Controls.Add(groupCliente);
             Controls.Add(groupDatosPrestamo);
             Controls.Add(groupCliente);
             Name = "FrmPrestamos";
@@ -368,45 +368,53 @@
             groupCliente.PerformLayout();
             groupDatosPrestamo.ResumeLayout(false);
             groupDatosPrestamo.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            groupCliente    .ResumeLayout(false);
+            groupCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPrestamos).EndInit();
-            groupBox2.ResumeLayout(false);
+            groupBotones.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
+        // ------------------- DATOS DEL CLIENTE -------------------
         private GroupBox groupCliente;
         private Label lblCedula;
         private TextBox txtCedula;
-        private Button btnBuscarcliente;
+        private Button btnBuscarCliente;
         private TextBox txtNombre;
         private Label lblNombre;
+
+        // ------------------- DATOS DEL PRÉSTAMO -------------------
         private GroupBox groupDatosPrestamo;
-        private TextBox txtQuienPresta;
-        private Label lblNumeroDeCuotas;
-        private TextBox txtNumeroDeCuotas;
-        private Label lblInteres;
         private Label lblMontoPrestamo;
         private TextBox txtMontoPrestado;
-        private Label lblFormaDePago;
-        private Label lblFechaPrestamo;
-        private Label label1;
-        private TextBox txtFormaPago;
-        private Label label2;
+        private Label lblInteres;
         private TextBox txtInteres;
-        private DateTimePicker ddtpFechaCobro;
+        private Label lblNumeroDeCuotas;
+        private TextBox txtNumeroDeCuotas;
+        private Label lblFormaDePago;
+        private TextBox txtFormaPago;
+        private Label lblFechaPrestamo;
         private DateTimePicker dtpFechaPrestamo;
-        private TextBox textBox6;
-        private GroupBox groupBox1;
+        private Label lblFechaCobro;
+        private DateTimePicker dtpFechaCobro;
+        private Label lblQuienPresta;
+        private TextBox txtQuienPresta;
+
+        // ------------------- ESTADO -------------------
+        private GroupBox groupEstado;
         private Label lblEstado;
         private CheckBox chkActivo;
+
+        // ------------------- TABLA DE PRÉSTAMOS -------------------
         private DataGridView dgvPrestamos;
-        private Button btnEliminar;
-        private Button btnBuscar;
+
+        // ------------------- BOTONES -------------------
+        private GroupBox groupBotones;
         private Button btnGuardar;
         private Button btnActualizar;
-        private GroupBox groupBox2;
+        private Button btnEliminar;
+        private Button btnBuscar;
     }
 }

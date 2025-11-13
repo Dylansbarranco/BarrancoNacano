@@ -1,5 +1,5 @@
 ﻿using BarrancoNacano.Models;
-
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,39 +7,58 @@ namespace BarrancoNacano.Controllers
 {
     public class ClienteController
     {
-        private static List<Cliente> clientes = new List<Cliente>();
+        private readonly AppDbContext _context;
 
+        public ClienteController()
+        {
+            _context = new AppDbContext(); // Tu clase de contexto
+        }
+
+        // ------------------- GUARDAR CLIENTE -------------------
         public void Guardar(Cliente cliente)
         {
-            cliente.Id = clientes.Count + 1;
-            clientes.Add(cliente);
+            _context.Clientes.Add(cliente);
+            _context.SaveChanges();
         }
 
+        // ------------------- LISTAR CLIENTES -------------------
         public List<Cliente> Listar()
         {
-            return clientes;
+            return _context.Clientes.ToList();
         }
 
+        // ------------------- BUSCAR POR CÉDULA -------------------
         public Cliente BuscarPorCedula(string cedula)
         {
-            return clientes.FirstOrDefault(c => c.Cedula == cedula);
+            return _context.Clientes.FirstOrDefault(c => c.Cedula == cedula);
         }
 
+        // ------------------- ACTUALIZAR CLIENTE -------------------
         public void Actualizar(Cliente clienteActualizado)
         {
-            var cliente = clientes.FirstOrDefault(c => c.Id == clienteActualizado.Id);
+            var cliente = _context.Clientes.FirstOrDefault(c => c.Id == clienteActualizado.Id);
             if (cliente != null)
             {
-                clientes.Remove(cliente);
-                clientes.Add(clienteActualizado);
+                cliente.Nombre = clienteActualizado.Nombre;
+                cliente.Apellido = clienteActualizado.Apellido;
+                cliente.Cedula = clienteActualizado.Cedula;
+                cliente.Telefono = clienteActualizado.Telefono;
+                cliente.Correo = clienteActualizado.Correo;
+                cliente.Direccion = clienteActualizado.Direccion;
+
+                _context.SaveChanges();
             }
         }
 
+        // ------------------- ELIMINAR CLIENTE -------------------
         public void Eliminar(int id)
         {
-            var cliente = clientes.FirstOrDefault(c => c.Id == id);
+            var cliente = _context.Clientes.FirstOrDefault(c => c.Id == id);
             if (cliente != null)
-                clientes.Remove(cliente);
+            {
+                _context.Clientes.Remove(cliente);
+                _context.SaveChanges();
+            }
         }
     }
 }

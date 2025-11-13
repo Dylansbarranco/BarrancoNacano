@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BarrancoNacano.Migrations
 {
-    [DbContext(typeof(DbContextApp))]
-    partial class DbContextAppModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AppDbContext))]
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -39,14 +39,6 @@ namespace BarrancoNacano.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("CedulaPath")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("CertificadoLaboralPath")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Ciudad")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -59,34 +51,46 @@ namespace BarrancoNacano.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("DireccionEmpresa")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Empresa")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("FotoPath")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Ingreso")
+                    b.Property<decimal>("IngresosMensuales")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Referencia1Nombre")
+                    b.Property<string>("R1Direccion")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Referencia1Telefono")
+                    b.Property<string>("R1Nombre")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Referencia2Nombre")
+                    b.Property<string>("R1Telefono")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Referencia2Telefono")
+                    b.Property<string>("R2Direccion")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("R2Nombre")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("R2Telefono")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RutaDocumentos")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -145,16 +149,22 @@ namespace BarrancoNacano.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PrestamoId");
-
                     b.ToTable("Pagos");
                 });
 
             modelBuilder.Entity("BarrancoNacano.Models.Prestamo", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("IdPrestamo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Activo")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CedulaCliente")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("ClienteId")
                         .HasColumnType("INTEGER");
@@ -167,54 +177,39 @@ namespace BarrancoNacano.Migrations
 
                     b.Property<string>("FormaPago")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
-                    b.Property<float>("Interes")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("Interes")
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("Monto")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("NumeroCuotas")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Prestamista")
+                    b.Property<string>("QuienPresta")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("IdPrestamo");
 
                     b.HasIndex("ClienteId");
 
                     b.ToTable("Prestamos");
                 });
 
-            modelBuilder.Entity("BarrancoNacano.Models.Pago", b =>
-                {
-                    b.HasOne("BarrancoNacano.Models.Prestamo", null)
-                        .WithMany("Pagos")
-                        .HasForeignKey("PrestamoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("BarrancoNacano.Models.Prestamo", b =>
                 {
-                    b.HasOne("BarrancoNacano.Models.Cliente", null)
-                        .WithMany("Prestamos")
+                    b.HasOne("BarrancoNacano.Models.Cliente", "Cliente")
+                        .WithMany()
                         .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("BarrancoNacano.Models.Cliente", b =>
-                {
-                    b.Navigation("Prestamos");
-                });
-
-            modelBuilder.Entity("BarrancoNacano.Models.Prestamo", b =>
-                {
-                    b.Navigation("Pagos");
+                    b.Navigation("Cliente");
                 });
 #pragma warning restore 612, 618
         }

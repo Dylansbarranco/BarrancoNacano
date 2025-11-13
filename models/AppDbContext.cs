@@ -1,9 +1,8 @@
-﻿using BarrancoNacano.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace BarrancoNacano.Models
 {
-    public class DbContextApp : DbContext
+    public class AppDbContext : DbContext
     {
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Prestamo> Prestamos { get; set; }
@@ -12,7 +11,7 @@ namespace BarrancoNacano.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=prestamos.db");
+            optionsBuilder.UseSqlite("Data Source=PrestamosApp.db");
         }
     }
 }
